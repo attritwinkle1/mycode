@@ -7,8 +7,12 @@ message = "As your score is :"
 
 score = int(input( "Please enter your score :")) 
 
+#checking if integer is only sent as input
+
+if type(score) != int:
+    print ("Please enter a valid integer")
 #if elif for the score range
-if score >= 90 and score <= 100:
+elif score >= 90 and score <= 100:
      message = message + str(score) + ", " + "Your grade is A"
 elif score >=80 and score <= 89:
      message = message + str(score) + ", " + "Your grade is B"

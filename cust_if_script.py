@@ -5,14 +5,24 @@
 
 message = "As your score is :"
 
-score = int(input( "Please enter your score :")) 
+# the user might input ANYTHING
+# 40
+# WD40   <-- this should cause a graceful exit
+# 40.5   <-- this should cause a graceful exit
+score = input("Please enter your score: ")   # input always returns a string
 
 #checking if integer is only sent as input
+#if not type(score) == int:
+#if type(score) != int:
+if not score.isnumeric():
+    print("Please enter a valid integer between 0-100")
+    exit()  # exit the program only IF score is NOT an int
 
-if type(score) != int:
-    print ("Please enter a valid integer")
+# now we KNOW that input (score) is a valid int... we can make the change
+score = int(score)
+
 #if elif for the score range
-elif score >= 90 and score <= 100:
+if score >= 90 and score <= 100:
      message = message + str(score) + ", " + "Your grade is A"
 elif score >=80 and score <= 89:
      message = message + str(score) + ", " + "Your grade is B"
